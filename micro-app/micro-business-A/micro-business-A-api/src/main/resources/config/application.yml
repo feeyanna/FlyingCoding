@@ -1,0 +1,116 @@
+# micro-app Common Config--微服务
+################################ spring config start ###############################
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  banner:
+    charset: UTF-8
+    location: classpath:config/banner.txt
+# 当前项目maven激活环境，例如：local/dev/test，对应pom.xml中profile设置值
+---
+spring:
+  profiles:
+    active: '@profileActive@'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+############################## micro-business-A-api start ##############################
+micro-business-A-api:
+  # 是否启用ansi控制台输出有颜色的字体
+  enable-ansi: true
+  # AOP配置
+  aop:
+    log:
+      # 是否启用
+      enabled: true
+      # 1.请求和响应分开，按照执行顺序打印
+      # 2.ThreadLocal线程绑定，方法执行结束时，连续打印请求和响应日志
+      # 3.ThreadLocal线程绑定，方法执行结束时，同时打印请求和响应日志
+      print-type: 1
+      # 请求日志在控制台是否格式化输出，local环境建议开启，服务器环境设置为false
+      request-log-format: true
+      # 响应日志在控制台是否格式化输出，local环境建议开启，服务器环境设置为false
+      response-log-format: true
+
+############################### mybatis start #################################
+mybatis:
+  # 启动时是否检查MyBatis XML文件是否存在
+  check-config-location: true
+  # MyBatis原生配置
+  configuration:
+    # 字段名称下划线转驼峰命名
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      # 全局默认主键类型
+      id-type: id_worker
+      # 逻辑已删除值(默认为 1)
+      logic-delete-value: 1
+      # 逻辑未删除值(默认为 0)
+      logic-not-delete-value: 0
+  # mapper xml映射路径
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+################################ mybatis end ##################################
+
+############################### DRUID数据源配置 start ################################
+---
+spring:
+  datasource:
+    druid:
+      filter:
+        slf4j:
+          enabled: true
+        stat:
+          log-slow-sql: true
+          merge-sql: true
+          slow-sql-millis: 3000
+        wall:
+          config:
+            delete-allow: true
+            drop-table-allow: false
+          enabled: true
+      filters: stat,wall,slf4j
+      initial-size: 50
+      max-active: 100
+      max-pool-prepared-statement-per-connection-size: 100
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      min-evictable-idle-time-millis: 300000
+      min-idle: 50
+      pool-prepared-statements: true
+      stat-view-servlet:
+        enabled: true
+        login-password: druid123
+        login-username: druid
+        url-pattern: /druid/*
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1
+      validation-query-timeout: 60000
+############################### DRUID数据源配置 end ################################
+
+# 自定义项目信息，Spring Boot Admin展示使用
+info:
+  project-groupId: '@project.groupId@'
+  project-artifactId: '@project.artifactId@'
+  project-name: '@project.name@'
+  project-finalName: '@project.build.finalName@'
+  project-author: ${swagger.contact.name}
+  project-description: '@project.description@'
+  project-sourceEncoding: '@project.build.sourceEncoding@'
+  project-spring-boot-version: '@spring-boot.version@'
+  project-mybatis-plus-version: '@mybatis-plus-boot-starter.version@'
+  project-version: '@project.version@'
+############################## Spring boot admin end ###############################
+
