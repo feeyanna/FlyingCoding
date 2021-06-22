@@ -10,7 +10,7 @@ spring:
     name: micro-business-A-api
   datasource:
     dynamic:
-      primary: master #设置默认的数据源或者数据源组,my-optdb
+      primary: master #设置默认的数据源或者数据源组
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候回抛出异常,不启动会使用默认数据源.
       datasource:
         master:
@@ -19,6 +19,16 @@ spring:
           password: 123456
           driver-class-name: com.mysql.jdbc.Driver
         test:
+          url: jdbc:mysql://127.0.0.2:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
+        test-A:
+          url: jdbc:mysql://127.0.0.2:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
+        test-B:
           url: jdbc:mysql://127.0.0.2:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
           username: root
           password: 123456

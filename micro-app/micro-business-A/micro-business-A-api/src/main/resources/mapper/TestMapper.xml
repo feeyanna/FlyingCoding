@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laifeiyang.dev.micro.business.A.mapper.TestMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        model_id, model_code, model_name, message_content, model_status, test_status, send_status, system_from, model_bak, create_staff, create_date, oper_type, update_staff, update_date
+    </sql>
+
+    <select id="getTest" resultType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from message_model
+    </select>
+
+</mapper>
