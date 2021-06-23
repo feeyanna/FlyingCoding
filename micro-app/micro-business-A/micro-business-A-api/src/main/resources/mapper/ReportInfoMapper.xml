@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laifeiyang.dev.micro.business.A.mapper.ReportInfoMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, is_tree, datasource, datasource_type, is_login_level, is_search, is_export, export_type, file_is_password, file_is_water, table_is_water, myself, title_code, data_sql, count_sql, url, show_text, html_text, create_time, status, remark
+    </sql>
+
+    <select id="getReportInfoPageListCount" resultType="long">
+        select count(1)
+        from report_info
+    </select>
+
+    <select id="getReportInfoPageList" resultType="com.laifeiyang.dev.micro.business.A.entity.ReportInfo">
+        select
+        <include refid="Base_Column_List"/>
+        from report_info
+        <if test="page.size != 0">
+            LIMIT #{page.current},#{page.size}
+        </if>
+    </select>
+
+</mapper>
