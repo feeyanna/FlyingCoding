@@ -1,0 +1,32 @@
+package ${cfg.queryParamPackage};
+
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+#if(${cfg.pageListOrder})
+import ${cfg.orderQueryParamPath};
+#else
+import ${cfg.queryParamCommonPath};
+#end
+
+/**
+ * <pre>
+ * $!{table.comment} 查询参数对象
+ * </pre>
+ *
+ * @author ${author}
+ * @date ${date}
+ */
+@Data
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(value = "${entity}QueryParam对象", description = "$!{table.comment}查询参数")
+#if(${cfg.pageListOrder})
+public class ${entity}QueryParam extends BaseParam {
+#else
+public class ${entity}QueryParam extends QueryParam {
+#end
+    private static final long serialVersionUID = 1L;
+}

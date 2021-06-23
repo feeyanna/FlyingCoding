@@ -23,6 +23,16 @@ spring:
           username: root
           password: 123456
           driver-class-name: com.mysql.jdbc.Driver
+        test-A:
+          url: jdbc:mysql://127.0.0.2:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
+        test-B:
+          url: jdbc:mysql://127.0.0.2:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver
   redis:
     #Redis服务器地址
     cluster:

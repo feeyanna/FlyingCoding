@@ -1,0 +1,45 @@
+package ${package.Mapper};
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${superMapperClassPackage};
+import ${package.Entity}.${entity};
+import ${cfg.queryParamPath};
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+/**
+ * <pre>
+ * $!{table.comment} Mapper 接口
+ * </pre>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${kotlin})
+interface ${table.mapperName} : ${superMapperClass}<${entity}>
+#else
+@Repository
+public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+#if(${cfg.generatorStrategy})
+
+    /**
+     * 获取分页对象记录总数
+     *
+     * @param ${cfg.entityObjectName}QueryParam
+     * @return
+     */
+    long get${entity}PageListCount(@Param("param") ${entity}QueryParam ${cfg.entityObjectName}QueryParam);
+
+    /**
+     * 获取分页对象
+     *
+     * @param page
+     * @param ${cfg.entityObjectName}QueryParam
+     * @return
+     */
+    IPage<${entity}> get${entity}PageList(@Param("page") Page page, @Param("param") ${entity}QueryParam ${cfg.entityObjectName}QueryParam);
+#end
+
+}
+#end

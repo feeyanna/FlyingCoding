@@ -1,5 +1,5 @@
 /**
- * Tydic.com.cn Inc.
+ * com.cn Inc.
  * Copyright (c) 2011-2021 All Rights Reserved.
  */
 package com.laifeiyang.dev.micro.business.A.controller;
