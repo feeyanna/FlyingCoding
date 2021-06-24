@@ -13,6 +13,7 @@
         <module>micro-parent</module>
         <module>micro-business-B</module>
         <module>micro-common</module>
+        <module>micro-task</module>
     </modules>
 
     <properties>
@@ -50,6 +51,8 @@
         <common-base.version>1.0.0</common-base.version>
         <common-base-document.version>1.0.1</common-base-document.version>
         <spring-web.version>5.2.7.RELEASE</spring-web.version>
+        <quartz.version>2.3.2.RELEASE</quartz.version>
+        <spring-jdbc.version>5.2.5.RELEASE</spring-jdbc.version>
     </properties>
 
     <dependencies>

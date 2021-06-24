@@ -1,4 +1,4 @@
-package com.laifeiyang.dev.micro.business.A;
+package com.laifeiyang.dev.micro.task;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.laifeiyang.dev.micro.common.utils.PrintApplicationInfo;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * micro-business-A-api 项目启动入口
+ * micro-task-api 项目启动入口
  * @author laifeiyang
  */
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
@@ -19,11 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan({"com.laifeiyang.dev.**.mapper"})
 @ComponentScan("com.laifeiyang.dev")
-public class MicroBusinessAApplication {
+public class MicroTaskApplication {
 
     public static void main(String[] args) {
-        // micro-business-A-api
-        ConfigurableApplicationContext context = SpringApplication.run(MicroBusinessAApplication.class, args);
+        // micro-task-api
+        ConfigurableApplicationContext context = SpringApplication.run(MicroTaskApplication.class, args);
         // 打印项目信息
         PrintApplicationInfo.print(context);
     }

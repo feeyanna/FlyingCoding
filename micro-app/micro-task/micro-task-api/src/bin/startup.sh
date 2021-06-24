@@ -4,7 +4,7 @@
 # 项目启动shell脚本
 # config目录: 配置文件目录
 # logs目录: 项目运行日志目录
-# logs/micro-business-B-api_startup.log: 记录启动日志
+# logs/micro-task-api_startup.log: 记录启动日志
 # logs/back目录: 项目运行日志备份目录
 # nohup后台运行
 #
@@ -13,10 +13,10 @@
 #======================================================================
 
 # 项目名称
-APPLICATION="micro-business-B-api-1.0.0-SNAPSHOT"
+APPLICATION="micro-task-api-1.0.0-SNAPSHOT"
 
 # 项目日志名称
-APPLICATION_LOG="micro-business-B-api"
+APPLICATION_LOG="micro-task-api"
 
 # 项目启动jar包名称
 APPLICATION_JAR="${APPLICATION}.jar"

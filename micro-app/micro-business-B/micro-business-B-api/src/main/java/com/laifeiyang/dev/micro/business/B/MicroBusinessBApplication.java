@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * micro-business-B-api 项目启动入口
  * @author laifeiyang
- * @since 2020-04-23
  */
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
 @EnableDiscoveryClient

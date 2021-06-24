@@ -83,7 +83,7 @@ echo ${STARTUP_LOG} >> ${LOG_STARTUP_PATH}
 # -XX:MaxMetaspaceSize=320m:限制Metaspace增长的上限，防止因为某些情况导致Metaspace无限的使用本地内存，影响到其他程序
 # -XX:-OmitStackTraceInFastThrow:解决重复异常不打印堆栈信息问题
 #==========================================================================================
-JAVA_OPT="-server -Xms8g -Xmx8g -Xmn4g -XX:MetaspaceSize=1g -XX:MaxMetaspaceSize=2g"
+JAVA_OPT="-server -Xms1g -Xmx1g -Xmn512m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=256m"
 JAVA_OPT="${JAVA_OPT} -XX:-OmitStackTraceInFastThrow"
 
 #=======================================================
