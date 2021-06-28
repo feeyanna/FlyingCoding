@@ -53,6 +53,8 @@
         <spring-web.version>5.2.7.RELEASE</spring-web.version>
         <quartz.version>2.3.2.RELEASE</quartz.version>
         <spring-jdbc.version>5.2.5.RELEASE</spring-jdbc.version>
+        <zookeeper.version>2.2.3.RELEASE</zookeeper.version>
+        <actuator.version>2.3.3.RELEASE</actuator.version>
     </properties>
 
     <dependencies>

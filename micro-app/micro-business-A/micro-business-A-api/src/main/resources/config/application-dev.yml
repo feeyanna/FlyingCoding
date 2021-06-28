@@ -8,6 +8,12 @@ spring:
     active: dev
   application:
     name: micro-business-A-api
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181,127.0.0.2:2181,127.0.0.3:2181
+      enabled: true
+      discovery:
+        instance-host: ${spring.cloud.client.ip-address}
   datasource:
     dynamic:
       primary: master #设置默认的数据源或者数据源组
