@@ -55,6 +55,7 @@
         <spring-jdbc.version>5.2.5.RELEASE</spring-jdbc.version>
         <zookeeper.version>2.2.3.RELEASE</zookeeper.version>
         <actuator.version>2.3.3.RELEASE</actuator.version>
+        <nacos.version>2.2.1.RELEASE</nacos.version>
     </properties>
 
     <dependencies>
