@@ -1,4 +1,4 @@
-#测试环境
+#B分公司生产环境
 spring:
   main:
     allow-bean-definition-overriding: true

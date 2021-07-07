@@ -14,7 +14,7 @@
 
     <dependencies>
         <!--zookeeper begin-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
             <version>${zookeeper.version}</version>
@@ -23,10 +23,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zookeeper-config</artifactId>
             <version>${zookeeper.version}</version>
-        </dependency>-->
+        </dependency>
         <!--zookeeper end-->
         <!--nacos begin-->
-        <dependency>
+       <!-- <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
             <version>${nacos.version}</version>
@@ -35,7 +35,7 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${nacos.version}</version>
-        </dependency>
+        </dependency>-->
         <!--nacos end-->
 
         <dependency>
@@ -307,18 +307,36 @@
             </activation>
         </profile>
         <profile>
-            <id>test</id>
+            <id>test-A</id>
             <properties>
-                <profileActive>test</profileActive>
+                <profileActive>test-A</profileActive>
             </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
         </profile>
         <profile>
-            <id>prod</id>
+            <id>test-B</id>
             <properties>
-                <profileActive>prod</profileActive>
+                <profileActive>test-B</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod-A</id>
+            <properties>
+                <profileActive>prod-A</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod-B</id>
+            <properties>
+                <profileActive>prod-B</profileActive>
             </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
