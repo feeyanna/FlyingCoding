@@ -45,4 +45,28 @@ public class TestController {
         return testService.testTwo();
     }
 
+    /**
+     * 测试：发送短信的url
+     */
+    @PostMapping("/sendmsgOne")
+    public Map<String,Object> sendmsgOne() {
+        return testService.sendmsgOne();
+    }
+
+    /**
+     * 测试：发送短信的手机号
+     */
+    @PostMapping("/sendmsgTwo")
+    public Map<String,Object> sendmsgTwo() {
+        return testService.sendmsgTwo();
+    }
+
+    /**
+     * 测试：不同业务需求的发送短信的手机号
+     */
+    @PostMapping("/sendmsgThree")
+    public Map<String,Object> sendmsgThree() {
+        return testService.sendmsgThree();
+    }
+
 }

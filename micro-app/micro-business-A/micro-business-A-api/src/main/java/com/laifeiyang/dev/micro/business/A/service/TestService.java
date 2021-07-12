@@ -25,4 +25,25 @@ public interface TestService {
      */
     Map<String,Object> testTwo();
 
+    /**
+     * 测试：发送短信的url
+     *
+     * @return
+     */
+    Map<String,Object> sendmsgOne();
+
+    /**
+     * 测试：发送短信的手机号
+     *
+     * @return
+     */
+    Map<String,Object> sendmsgTwo();
+
+    /**
+     * 测试：不同业务需求的发送短信的手机号
+     *
+     * @return
+     */
+    Map<String,Object> sendmsgThree();
+
 }
