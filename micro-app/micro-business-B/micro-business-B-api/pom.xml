@@ -28,6 +28,12 @@
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
             <version>${dynamic-datasource.version}</version>
         </dependency>
+        <!--需要增加A的feign-->
+        <dependency>
+            <groupId>com.laifeiyang.dev</groupId>
+            <artifactId>micro-business-A-feign</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
