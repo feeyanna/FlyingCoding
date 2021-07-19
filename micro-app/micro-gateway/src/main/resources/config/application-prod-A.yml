@@ -1,0 +1,14 @@
+#A分公司生产环境
+nacos:
+  namespace: cc1d802a-2701-48a6-9a47-2028e4812880
+  server-addr: 127.0.0.1:8848,127.0.0.2:8848,127.0.0.3:8848
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: micro-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}

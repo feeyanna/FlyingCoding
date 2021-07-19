@@ -14,6 +14,7 @@
         <module>micro-business-B</module>
         <module>micro-common</module>
         <module>micro-task</module>
+        <module>micro-gateway</module>
     </modules>
 
     <properties>
@@ -56,6 +57,7 @@
         <zookeeper.version>2.2.3.RELEASE</zookeeper.version>
         <actuator.version>2.3.3.RELEASE</actuator.version>
         <nacos.version>2.2.1.RELEASE</nacos.version>
+        <spring-cloud-gateway.version>2.2.3.RELEASE</spring-cloud-gateway.version>
     </properties>
 
     <dependencies>

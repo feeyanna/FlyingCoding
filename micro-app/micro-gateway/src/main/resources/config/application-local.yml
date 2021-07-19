@@ -1,0 +1,56 @@
+#本地环境
+nacos:
+  namespace: 96a25e9d-6010-42ff-8464-ab061314f74d
+  server-addr: 127.0.0.1:8848
+server:
+  port: 8087
+spring:
+  profiles:
+    active: local
+  application:
+    name: micro-gateway
+  cloud:
+    gateway:
+      #去掉跨域，解决方案配置于nginx
+      #globalcors:
+      #  cors-configurations:
+      #    '[/**]':
+      #      allowedOrigins: "https://docs.spring.io"
+      #      allowedMethods: "*"
+      #      allowedHeaders: "*"
+      discovery:
+        locator:
+          enabled: true  #表明gateway开启服务注册和发现的功能，并且spring cloud gateway自动根据服务发现为每一个服务创建了一个router，这个router将以服务名开头的请求路径转发到对应的服务。
+          lowerCaseServiceId: false   #是将请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了），比如以/service-hi/*的请求路径被路由转发到服务名为service-hi的服务上。
+          filters:
+            - StripPrefix=1
+      default-filters:
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/defaultFallback'
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+  datasource:
+    url: jdbc:mysql://192.168.30.84:3306/ssa_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+# 开启熔断器功能
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 15000
+  threadpool:
+    default:
+      coreSize: 100
